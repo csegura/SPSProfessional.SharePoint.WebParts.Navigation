@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature 
+  	Id="028C003E-AAAA-4b7e-A67F-B8CF21289439" 
+	  Title="SPSProfessional Folder Explorer in Actions menu"
+	  Description="Open a page with a tree folder explorer from list actions menu."
+	  Version="1.0.0.0"
+  	Scope="Web" 
+	  ImageUrl="spsprofessionalactions.gif"
+  	xmlns="http://schemas.microsoft.com/sharepoint/">
+  
+  <ElementManifests>
+    	<ElementManifest Location="SPSProfessional_Actions_FolderExplorer.xml" />
+  </ElementManifests>
+</Feature>

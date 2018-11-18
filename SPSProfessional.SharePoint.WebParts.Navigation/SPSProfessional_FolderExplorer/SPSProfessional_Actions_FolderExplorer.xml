@@ -1,0 +1,14 @@
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction 
+    Id="SPSProfessional.Actions.FolderExplorer"
+    Title="Folder Explorer" 
+    Description="Folder tree explorer"
+    RegistrationType="List" 
+    RegistrationId="101" 
+    GroupId="ActionsMenu"
+    Location="Microsoft.SharePoint.StandardMenu"
+    Sequence="1000"
+    ImageUrl="_layouts/images/spsprofessionalfolderexplorer.gif">
+    <UrlAction Url="_layouts/SPSProfessional_FolderExplorer.aspx?ListId={ListId}" />   
+  </CustomAction>
+</Elements>

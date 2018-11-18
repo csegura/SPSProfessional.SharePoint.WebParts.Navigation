@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="SPSProfessional.SharePoint.WebParts.Navigation.WebExplorer, SPSProfessional.SharePoint.WebParts.Navigation, Version=1.0.1030.2136, Culture=neutral, PublicKeyToken=4031063ddba1c7c7" />
+      <importErrorMessage>Error importing webpart</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">SPSProfessional - WebExplorer</property>
+        <property name="Description" type="string">Web tree explorer. (c) by SPSProfessional - www.spsprofessional.com</property>
+        <property name="CatalogIconImageUrl" type="string">_WPR_\spsprofessionallogo.gif</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

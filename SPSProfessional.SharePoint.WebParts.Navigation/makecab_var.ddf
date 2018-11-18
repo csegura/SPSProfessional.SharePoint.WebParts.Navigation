@@ -1,0 +1,33 @@
+.OPTION EXPLICIT     
+.Set CabinetNameTemplate=xSOLUTIONx.xDEPLOYx 
+.set DiskDirectoryTemplate=CDROM 
+.Set CompressionType=MSZIP
+.Set UniqueFiles="ON"
+.Set Cabinet=on
+.Set DiskDirectory1=_build
+
+; Manifest
+manifest_xDEPLOYx.xml manifest.xml
+
+; Binary files
+xDIRxSPSProfessional.SharePoint.WebParts.Navigation.dll			SPSProfessional.SharePoint.WebParts.Navigation.dll
+
+; WebParts
+FolderExplorer.webpart		FolderExplorer.webpart
+FolderBreadCrumb.webpart	FolderBreadCrumb.webpart
+WebExplorer.webpart			WebExplorer.webpart
+
+; Images
+IMAGES\spsprofessionallogo.gif				spsprofessionallogo.gif
+IMAGES\spsprofessionalactions.gif			IMAGES\spsprofessionalactions.gif
+IMAGES\spsprofessionalfolderexplorer.gif	IMAGES\spsprofessionalfolderexplorer.gif
+
+; Feature
+SPSProfessional_FolderExplorer\feature.xml									SPSProfessional_FolderExplorer\feature.xml
+SPSProfessional_FolderExplorer\SPSProfessional_FolderExplorer.aspx			LAYOUTS\SPSProfessional_FolderExplorer.aspx
+SPSProfessional_FolderExplorer\SPSProfessional_Actions_FolderExplorer.xml   SPSProfessional_FolderExplorer\SPSProfessional_Actions_FolderExplorer.xml
+
+; Resources
+Resources\SPSProfessional.SharePoint.WebParts.Navigation.resx			Resources\SPSProfessional.SharePoint.WebParts.Navigation.resx
+Resources\SPSProfessional.SharePoint.WebParts.Navigation.en-US.resx		Resources\SPSProfessional.SharePoint.WebParts.Navigation.en-US.resx
+Resources\SPSProfessional.SharePoint.WebParts.Navigation.es-ES.resx		Resources\SPSProfessional.SharePoint.WebParts.Navigation.es-ES.resx

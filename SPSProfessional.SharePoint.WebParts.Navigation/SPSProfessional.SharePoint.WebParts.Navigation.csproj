@@ -1,0 +1,169 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{442D783E-3464-4D00-A051-4FB657232AB5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPSProfessional.SharePoint.WebParts.Navigation</RootNamespace>
+    <AssemblyName>SPSProfessional.SharePoint.WebParts.Navigation</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>spsprofessional.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SharePoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="SPSProfessional.SharePoint.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4031063ddba1c7c7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SPSProfessional.SharePoint.Framework\SPSProfessional.SharePoint.Framework\bin\Debug\SPSProfessional.SharePoint.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OLD\Copy of FolderBreadCrumb.cs" />
+    <None Include="OLD\SPSWebPartDbg.cs" />
+    <None Include="SPSControlar.cs" />
+    <None Include="Tools\HierarchyTools.cs" />
+    <None Include="Resources\SPSProfessional.SharePoint.WebParts.Navigation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPSProfessional.SharePoint.WebParts.Navigation.resx</DependentUpon>
+    </None>
+    <None Include="Resources\SPSProfessional.SharePoint.WebParts.Navigation.en-US.Designer.cs">
+      <DependentUpon>SPSProfessional.SharePoint.WebParts.Navigation.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="Resources\SPSProfessional.SharePoint.WebParts.Navigation.es-ES.Designer.cs">
+      <DependentUpon>SPSProfessional.SharePoint.WebParts.Navigation.es-ES.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <Compile Include="..\..\SPSProfessional.SharePoint.WebParts.SPSExplorer\SPSProfessional.SharePoint.WebParts.SPSExplorer\Shared\BreadCrumbControl.cs">
+      <Link>Controls\BreadCrumbControl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SPSProfessional.SharePoint.WebParts.SPSExplorer\SPSProfessional.SharePoint.WebParts.SPSExplorer\Shared\FolderExplorerControl.cs">
+      <Link>Controls\FolderExplorerControl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SPSProfessional.SharePoint.WebParts.SPSExplorer\SPSProfessional.SharePoint.WebParts.SPSExplorer\Shared\FollowViewControl.cs">
+      <Link>Controls\FollowViewControl.cs</Link>
+    </Compile>
+    <Compile Include="SPSResources.cs" />
+    <Compile Include="WebExplorerParamsEditor.cs" />
+    <Compile Include="FolderExplorerControl.cs" />
+    <Compile Include="WebExplorer.cs" />
+    <Compile Include="FolderBreadCrumb.cs" />
+    <Compile Include="FolderBreadCrumbEditorPart.cs" />
+    <Compile Include="FolderExplorer.cs" />
+    <Compile Include="FolderExplorerEditorPart.cs" />
+    <None Include="Tools\NavigationTools.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IMAGES\spsprofessionalactions.gif" />
+    <Content Include="IMAGES\spsprofessionallogo.gif" />
+    <Content Include="IMAGES\spsprofessionalfolderexplorer.gif" />
+    <Content Include="manifest_cab.xml" />
+    <Content Include="manifest_wsp.xml" />
+    <Content Include="SPSProfessional_FolderExplorer\Feature.xml" />
+    <Content Include="SPSProfessional_FolderExplorer\SPSProfessional_Actions_FolderExplorer.xml" />
+    <Content Include="SPSProfessional_FolderExplorer\SPSProfessional_FolderExplorer.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="OLD\Manifest.xml" />
+    <Content Include="_build\replace.vbs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makecab_var.ddf" />
+    <None Include="spsprofessional.snk" />
+    <None Include="WebExplorer.webpart" />
+    <None Include="FolderBreadCrumb.webpart" />
+    <None Include="FolderExplorer.webpart" />
+    <None Include="_build\BuildCab.Bat" />
+    <None Include="_build\buildcab.msbuild" />
+    <None Include="_build\Copy of BuildCab.Bat" />
+    <None Include="_build\xenocode.postbuild" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPSProfessional.SharePoint.WebParts.Navigation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPSProfessional.SharePoint.WebParts.Navigation.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPSProfessional.SharePoint.WebParts.Navigation.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPSProfessional.SharePoint.WebParts.Navigation.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPSProfessional.SharePoint.WebParts.Navigation.es-ES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPSProfessional.SharePoint.WebParts.Navigation.es-ES.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Package\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<WebPartManifest xmlns="http://schemas.microsoft.com/WebPart/v2/Manifest">
+  <Assemblies>
+    <Assembly DeploymentTarget="GlobalAssemblyCache" FileName="SPSProfessional.SharePoint.WebParts.Navigation.dll">
+      <ClassResources>
+        <ClassResource Location="wpresources" FileName="spsprofessionallogo.gif"/>
+      </ClassResources>
+      <SafeControls>
+        <SafeControl
+          Assembly="SPSProfessional.SharePoint.WebParts.Navigation, Version=1.0.1028.1835, Culture=neutral, PublicKeyToken=0a1ca88129d2b88d"
+          Namespace="SPSProfessional.SharePoint.WebParts.Navigation"
+          TypeName="*"
+        ></SafeControl>
+      </SafeControls>
+    </Assembly>
+  </Assemblies>
+  <DwpFiles>
+    <DwpFile FileName="FolderBreadCrumb.webpart" />
+    <DwpFile FileName="FolderExplorer.webpart" />
+    <DwpFile FileName="WebExplorer.webpart" />
+  </DwpFiles>
+  <CodeAccessSecurity>
+    <PolicyItem>
+      <PermissionSet class="NamedPermissionSet" version="1" Description="Permission set for spsProParts components">
+        <IPermission class="AspNetHostingPermission" version="1" Level="Minimal" />
+        <IPermission class="SecurityPermission" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.ReflectionPermission" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.RegistryPermission" version="1" Unrestricted="True" />
+        <IPermission class="Microsoft.SharePoint.Security.SharePointPermission, Microsoft.SharePoint.Security, version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+        <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+      </PermissionSet>
+      <Assemblies>
+        <Assembly Name="SPSProfessional.SharePoint.WebParts.Navigation"/>
+      </Assemblies>
+    </PolicyItem>
+  </CodeAccessSecurity>
+</WebPartManifest>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0"?>
+<Solution SolutionId="{fcbe46c1-AAAA-4723-92bd-51bbc7f619d6}"
+          xmlns="http://schemas.microsoft.com/sharepoint/">
+
+  <Assemblies>
+    <Assembly DeploymentTarget="WebApplication" Location="SPSProfessional.SharePoint.WebParts.Navigation.dll" >      
+      <ClassResources>
+        <ClassResource Location="spsprofessionallogo.gif"/>
+      </ClassResources>
+      <SafeControls>
+        <SafeControl
+          Assembly="SPSProfessional.SharePoint.WebParts.Navigation, Version=1.0.1030.2136, Culture=neutral, PublicKeyToken=4031063ddba1c7c7"
+          Namespace="SPSProfessional.SharePoint.WebParts.Navigation"
+          TypeName="*"
+        ></SafeControl>
+      </SafeControls>
+    </Assembly>
+  </Assemblies>
+
+  <FeatureManifests>
+    <FeatureManifest Location="SPSProfessional_FolderExplorer\Feature.xml"/>
+  </FeatureManifests>
+
+  <TemplateFiles>
+    <TemplateFile Location="LAYOUTS\SPSProfessional_FolderExplorer.aspx"/>
+    <TemplateFile Location="IMAGES\spsprofessionalactions.gif"/>
+    <TemplateFile Location="IMAGES\spsprofessionalfolderexplorer.gif"/>
+  </TemplateFiles>
+
+  <DwpFiles>
+    <DwpFile Location="FolderBreadCrumb.webpart" />
+    <DwpFile Location="FolderExplorer.webpart" />
+    <DwpFile Location="WebExplorer.webpart" />
+  </DwpFiles>
+
+
+  <RootFiles>
+    <RootFile Location="Resources\SPSProfessional.SharePoint.WebParts.Navigation.resx" />
+    <RootFile Location="Resources\SPSProfessional.SharePoint.WebParts.Navigation.en-US.resx" />
+    <RootFile Location="Resources\SPSProfessional.SharePoint.WebParts.Navigation.es-ES.resx" />
+  </RootFiles>
+ 
+  
+  <CodeAccessSecurity>
+    <PolicyItem>
+      <PermissionSet class="NamedPermissionSet" version="1" Description="Permission set for SPSProfessional components">
+        <IPermission class="AspNetHostingPermission" version="1" Level="Minimal" />
+        <IPermission class="SecurityPermission" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.ReflectionPermission" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.RegistryPermission" version="1" Unrestricted="True" />
+        <IPermission class="Microsoft.SharePoint.Security.SharePointPermission, Microsoft.SharePoint.Security, version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="True" />
+        <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+        <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+        <IPermission class="System.Net.DnsPermission, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />        
+      </PermissionSet>
+      <Assemblies>
+        <Assembly Name="SPSProfessional.SharePoint.WebParts.Navigation"/>
+      </Assemblies>
+    </PolicyItem>
+  </CodeAccessSecurity>
+
+</Solution>

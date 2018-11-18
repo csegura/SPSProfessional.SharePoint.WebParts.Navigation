@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>c:\dev\bin\MSBuildCommunity\Build</MSBuildCommunityTasksPath>
+    <XenoCode>&quot;C:\dev\bin\xenocode\postbuild 2007 professional\xbuild.exe&quot;</XenoCode>
+    <XenoCodeArgs>xenocode.postbuild /m xenocode.xcmap /o .</XenoCodeArgs>
+    <StsAdm>&quot;C:\Program Files\Common Files\Microsoft Shared\web server extensions\12\BIN\stsadm.exe&quot;</StsAdm>
+    <Project>SPSProfessional.SharePoint.WebParts.Navigation</Project>
+    <Solution>$(Project).2.0</Solution>
+    <Build>Release</Build>
+    <UploadDir>\\192.168.110.226\c$\SPSProfessional\App_Data\files</UploadDir>
+    <MsgSeparator>______________________________________________________________</MsgSeparator>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets"/>
+
+  <Target Name="Clean">
+    <Message Importance="normal" Text="-> CLEAN OLD FILES $(MsgSeparator)" />
+    <Exec Command="@del *.cab > nul" />
+    <Exec Command="@del *.dll > nul" />
+    <Exec Command="@del *.wsp > nul" />
+    <Exec Command="@del *.xcmap > nul" />
+  </Target>
+
+  <Target Name="Compile" DependsOnTargets="Clean">
+    <Message Importance="high" Text="-> COMPILE STAGE $(Build) $(MsgSeparator)" />
+    <MSBuild Projects="..\$(Project).csproj"
+             Targets="Clean;Rebuild"
+             Properties="Configuration=$(Build);PostBuildEvent=" RebaseOutputs="false"/>
+  </Target>
+
+  <Target Name="XenoCode" DependsOnTargets="Compile" Condition="$(Build) == 'Release'">
+    <Message Importance="high" Text="-> OFFUSCATE $(MsgSeparator)" />
+    <Exec Command="$(XenoCode) $(XenoCodeArgs)" />
+  </Target>
+
+  <Target Name="CopyDebugDll" DependsOnTargets="Compile" Condition="$(Build) == 'Debug'">
+    <Message Importance="high" Text="-> GET DEBUG DLL $(MsgSeparator)" />
+    <Copy SourceFiles="..\bin\debug\$(Project).dll" DestinationFolder="." />
+  </Target>
+
+  <Target Name="PrepairPackageDebug" DependsOnTargets="CopyDebugDll;XenoCode" Condition="$(Build) == 'Debug'">
+    <Copy SourceFiles="..\makecab_var.ddf" DestinationFiles="..\makecab.ddf" />
+    <FileUpdate Files="..\makecab.ddf" Regex="xSOLUTIONx" ReplacementText="$(Solution)"/>
+    <FileUpdate Files="..\makecab.ddf" Regex="xDIRx" ReplacementText="bin\$(Build)\"/>
+    <FileUpdate Files="..\makecab.ddf" Regex="xDEPLOYx" ReplacementText="wsp"/>
+    <Message Importance="high" Text="-> SOLUTION DEBUG NAME $(Solution)" />
+  </Target>
+
+  <Target Name="PrepairPackageRelease" DependsOnTargets="CopyDebugDll;XenoCode" Condition="$(Build) == 'Release'">
+    <Copy SourceFiles="..\makecab_var.ddf" DestinationFiles="..\makecab.ddf" />
+    <FileUpdate Files="..\makecab.ddf" Regex="xSOLUTIONx" ReplacementText="$(Solution)"/>
+    <FileUpdate Files="..\makecab.ddf" Regex="xDIRx" ReplacementText="_build\"/>
+    <FileUpdate Files="..\makecab.ddf" Regex="xDEPLOYx" ReplacementText="wsp"/>
+    <Message Importance="high" Text="-> SOLUTION RELEASE NAME $(Solution)" />
+  </Target>
+
+
+  <Target Name="Package" DependsOnTargets="PrepairPackageDebug;PrepairPackageRelease" >
+    <Message Importance="high" Text="-> PACKAGE $(MsgSeparator)" />
+    <Exec Command="makecab.exe /F makecab.ddf" WorkingDirectory="..\" />
+  </Target>
+
+  <Target Name="Remove">
+    <Message Importance="high" Text="-> CLEAN SOLUTION $(MsgSeparator)" />
+    <Exec Command="$(StsAdm) -o deletewppack -name $(Solution).cab" IgnoreExitCode="true" />
+    <Exec Command="$(StsAdm) -o retractsolution -local -allcontenturls -name $(Solution).wsp" IgnoreExitCode="true"/>
+    <Exec Command="$(StsAdm) -o deletesolution -name $(Solution).wsp" IgnoreExitCode="true"/>
+  </Target>
+
+  <Target Name="Deploy" DependsOnTargets="Remove;Package">
+    <Message Importance="high" Text="-> DEPLOY SOLUTION $(MsgSeparator)" />
+    <Exec Command="$(StsAdm) -o addsolution -filename $(Solution).wsp" />
+    <Exec Command="$(StsAdm) -o deploysolution -name $(Solution).wsp -local -allowgacdeployment -allcontenturls -allowCasPolicies" />
+  </Target>
+
+  <Target Name="Upload" DependsOnTargets="Package" Condition="$(Build) == 'Release'">
+    <Message Importance="high" Text="-> UPLOAD SOLUTION $(Solution).wsp $(MsgSeparator)" />
+    <Copy SourceFiles="$(Solution).wsp" DestinationFolder="$(UploadDir)"  />
+  </Target>
+
+</Project>
