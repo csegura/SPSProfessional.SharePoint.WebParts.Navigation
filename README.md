@@ -51,7 +51,7 @@ If "Navigate to list" is checked, the links in the breadcrumb redirect to the ma
 
  Activating this feature, you will be able to add easily a tree view navigation in each Document Library in order to navigate fast to the desired folder.
 
-![](images/navigation_Video_2.gif)  
+![](images/Navigation_Video_2.gif)  
 
 Usage
 -----
@@ -59,3 +59,5 @@ Usage
 To Activate this feature go to "Site Settings", "Site Features" and activate the "**SPSProfessional** Folder Explorer in Actions menu" feature
 
 ![](images/folderexplorer_feature_properties.gif)
+
+![](images/Navigation_Video_1.gif)  
